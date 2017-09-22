@@ -23,6 +23,7 @@ public:
 
 	void	DefaultTheme();
 	void	RedTheme();
+	void	BlueTheme();
 };
 
 extern bool bIsGuiVisible;

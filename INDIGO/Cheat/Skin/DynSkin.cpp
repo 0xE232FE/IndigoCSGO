@@ -258,7 +258,7 @@ namespace DynSkin
 				return false;
 
 			_csgo_english = new File::Valve::CConfig();
-			if ( !_csgo_english->Load( gamePath + "/resource/" + gameShortName + "csgo_english.txt" , true ) )
+			if (!_csgo_english->Load(gamePath + "/resource/" + gameShortName + "_english.txt", true))
 				return false;
 
 			// honestly this entire fix is so fucking ghetto kill me please

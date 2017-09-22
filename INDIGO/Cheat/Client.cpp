@@ -827,7 +827,7 @@ namespace Client
 
 				ImGui::Separator();
 
-				const char* ThemesList[] = { "Default" , "Red" };
+				const char* ThemesList[] = { "Default" , "Red" , "Blue" };
 
 				ImGui::Combo("Menu Color Theme", &iMenuTheme, ThemesList, IM_ARRAYSIZE(ThemesList));
 
@@ -842,6 +842,10 @@ namespace Client
 					else if (iMenuTheme == 1)
 					{
 						g_pGui->RedTheme();
+					}
+					else if (iMenuTheme == 2)
+					{
+						g_pGui->BlueTheme();
 					}
 				}
 			}

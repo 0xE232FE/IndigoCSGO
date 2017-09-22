@@ -37,7 +37,7 @@ void CGui::GUI_Init( IDirect3DDevice9 * pDevice )
 	ImFont* font = io.Fonts->AddFontFromMemoryCompressedTTF( 
 		Avalon_compressed_data , Avalon_compressed_size , 12.f );
 
-	style.WindowMinSize = ImVec2( 400 , 400 );
+	style.WindowMinSize = ImVec2( 300 , 300 );
 	style.FramePadding = ImVec2( 4 , 2 );
 	style.ItemSpacing = ImVec2( 6 , 3 );
 	style.ItemInnerSpacing = ImVec2( 6 , 4 );
@@ -55,6 +55,7 @@ void CGui::GUI_Init( IDirect3DDevice9 * pDevice )
 	style.AntiAliasedShapes = true;
 
 	RedTheme();
+	BlueTheme();
 
 	ImGui_ImplDX9_CreateDeviceObjects();
 
@@ -261,6 +262,55 @@ void CGui::RedTheme()
 	style.Colors[ImGuiCol_PlotHistogramHovered] = ImVec4( 0.92f , 0.18f , 0.29f , 1.00f );
 	style.Colors[ImGuiCol_TextSelectedBg] = ImVec4( 0.92f , 0.18f , 0.29f , 0.43f );
 	style.Colors[ImGuiCol_ModalWindowDarkening] = ImVec4( 0.20f , 0.22f , 0.27f , 0.73f );
+}
+
+void CGui::BlueTheme()
+{
+	ImGuiStyle& style = ImGui::GetStyle();
+
+	style.Colors[ImGuiCol_Text] = ImVec4(1.00f, 1.00f, 1.00f, 1.00f); // MAIN TEXT
+	style.Colors[ImGuiCol_TextDisabled] = ImVec4(0.50f, 0.50f, 0.50f, 0.50); //NON SELECTED TEXT
+	style.Colors[ImGuiCol_WindowBg] = ImVec4(0.13f, 0.14f, 0.17f, 1.00f); //WINDOW BACKGROUND
+	style.Colors[ImGuiCol_ChildWindowBg] = ImVec4(0.20f, 0.22f, 0.27f, 0.58f); //CHILD WINDOW BACKGROUND
+	style.Colors[ImGuiCol_PopupBg] = ImVec4(0.20f, 0.22f, 0.27f, 1.00f); //POP UP BACKGROUND
+	style.Colors[ImGuiCol_Border] = ImVec4( 0.00f , 0.00f , 0.00f , 0.35f ); //BORDER BACKGROUND
+	style.Colors[ImGuiCol_BorderShadow] = ImVec4(0.00f, 0.00f, 0.00f, 0.00f); //BORDER SHADOW
+	style.Colors[ImGuiCol_FrameBg] = ImVec4(0.20f, 0.22f, 0.27f, 1.00f); //SLIDER
+	style.Colors[ImGuiCol_FrameBgHovered] = ImVec4(0.92f, 0.18f, 0.29f, 0.78f);
+	style.Colors[ImGuiCol_FrameBgActive] = ImVec4(0.92f, 0.18f, 0.29f, 1.00f);
+	style.Colors[ImGuiCol_TitleBg] = ImVec4(0.20f, 0.22f, 0.27f, 1.00f);
+	style.Colors[ImGuiCol_TitleBgCollapsed] = ImVec4(0.20f, 0.22f, 0.27f, 0.75f); //TITLE BAR when not in focus
+	style.Colors[ImGuiCol_TitleBgActive] = ImVec4(0.00f, 0.00f, 1.00f, 1.00f); //TITLE BAR when active
+	style.Colors[ImGuiCol_MenuBarBg] = ImVec4(0.20f, 0.22f, 0.27f, 0.47f);
+	style.Colors[ImGuiCol_ScrollbarBg] = ImVec4(0.20f, 0.22f, 0.27f, 1.00f);
+	style.Colors[ImGuiCol_ScrollbarGrab] = ImVec4(0.00f, 0.00f, 0.50f, 1.00f); //Scroll bar normal
+	style.Colors[ImGuiCol_ScrollbarGrabHovered] = ImVec4(0.00f, 0.00f, 0.90f, 1.00f); //Scroll bar when mouse overed
+	style.Colors[ImGuiCol_ScrollbarGrabActive] = ImVec4(0.00f, 0.00f, 0.50f, 1.00f); //Scroll bar when clicked
+	style.Colors[ImGuiCol_ComboBg] = ImVec4(0.20f, 0.22f, 0.27f, 1.00f);
+	style.Colors[ImGuiCol_CheckMark] = ImVec4(0.00f, 0.00f, 0.50f, 1.00f);
+	style.Colors[ImGuiCol_SliderGrab] = ImVec4(0.00f, 0.00f, 0.90f, 1.00f); //Slider normal
+	style.Colors[ImGuiCol_SliderGrabActive] = ImVec4(0.00f, 0.00f, 0.50f, 1.00f); //Slider when clicked
+	style.Colors[ImGuiCol_Button] = ImVec4(0.00f, 0.00f, 1.00f, 1.00f); //Normal button
+	style.Colors[ImGuiCol_ButtonHovered] = ImVec4(0.00f, 0.00f, 0.50f, 1.00f); //Button when mouse overed
+	style.Colors[ImGuiCol_ButtonActive] = ImVec4(0.00f, 0.00f, 1.00f, 1.00f); //Button when clicked
+	style.Colors[ImGuiCol_Header] = ImVec4(0.00f, 0.00f, 0.90f, 1.00f); //Header when normal
+	style.Colors[ImGuiCol_HeaderHovered] = ImVec4(0.00f, 0.00f, 0.75f, 1.00f); //Header when mouse overed
+	style.Colors[ImGuiCol_HeaderActive] = ImVec4(0.00f, 0.00f, 0.50f, 1.00f); //Header when clicked
+	style.Colors[ImGuiCol_Column] = ImVec4(0.00f, 0.00f, 0.50f, 1.00f); //Column normal
+	style.Colors[ImGuiCol_ColumnHovered] = ImVec4(0.00f, 0.00f, 0.50f, 1.00f); //Column when mouse overed
+	style.Colors[ImGuiCol_ColumnActive] = ImVec4(0.00f, 0.00f, 0.50f, 1.00f); //Column when Active
+	style.Colors[ImGuiCol_ResizeGrip] = ImVec4(0.00f, 0.00f, 1.00f, 1.00f); //Normal resize
+	style.Colors[ImGuiCol_ResizeGripHovered] = ImVec4(0.00f, 0.00f, 1.00f, 1.00f); //Resize when mouse overed
+	style.Colors[ImGuiCol_ResizeGripActive] = ImVec4(0.00f, 0.00f, 0.50f, 1.00f); //Resize when clicked
+	style.Colors[ImGuiCol_CloseButton] = ImVec4(1.00f, 1.00f, 1.00f, 0.51f);
+	style.Colors[ImGuiCol_CloseButtonHovered] = ImVec4(1.00f, 1.00f, 1.00f, 0.67f);
+	style.Colors[ImGuiCol_CloseButtonActive] = ImVec4(1.00f, 1.00f, 1.00f, 0.78f);
+	style.Colors[ImGuiCol_PlotLines] = ImVec4(0.86f, 0.93f, 0.89f, 0.63f);
+	style.Colors[ImGuiCol_PlotLinesHovered] = ImVec4(0.92f, 0.18f, 0.29f, 1.00f);
+	style.Colors[ImGuiCol_PlotHistogram] = ImVec4(0.86f, 0.93f, 0.89f, 0.63f);
+	style.Colors[ImGuiCol_PlotHistogramHovered] = ImVec4(0.92f, 0.18f, 0.29f, 1.00f);
+	style.Colors[ImGuiCol_TextSelectedBg] = ImVec4(0.92f, 0.18f, 0.29f, 0.43f);
+	style.Colors[ImGuiCol_ModalWindowDarkening] = ImVec4(0.20f, 0.22f, 0.27f, 0.73f);
 }
 
 namespace ImGui
