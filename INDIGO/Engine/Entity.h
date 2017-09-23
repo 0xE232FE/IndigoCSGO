@@ -29,6 +29,7 @@ namespace Engine
 		int		GetTeam();
 		int		GetShotsFired();
 		int		GetIsScoped();
+		int		GetIsZoomed();
 		int		GetTickBase();
 		ObserverMode_t GetObserverMode();
 		PVOID GetObserverTarget();

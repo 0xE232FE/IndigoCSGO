@@ -24,6 +24,7 @@ public:
 	void	DefaultTheme();
 	void	RedTheme();
 	void	BlueTheme();
+	void	PinkTheme();
 };
 
 extern bool bIsGuiVisible;

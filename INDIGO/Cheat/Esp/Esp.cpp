@@ -12,7 +12,7 @@ void CSoundEsp::Update()
 {
 	for ( size_t i = 0; i < Sound.size(); i++ )
 	{
-		if ( Sound[i].dwTime + 800 <= GetTickCount64() )
+		if ( Sound[i].dwTime + 800 <= GetTickCount64())
 		{
 			Sound.erase( Sound.begin() + i );
 		}

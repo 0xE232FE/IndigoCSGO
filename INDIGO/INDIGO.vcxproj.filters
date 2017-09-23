@@ -13,9 +13,6 @@
     <Filter Include="ImGui">
       <UniqueIdentifier>{30167f52-b313-4223-ae57-871238dc39ca}</UniqueIdentifier>
     </Filter>
-    <Filter Include="License">
-      <UniqueIdentifier>{7942f7a1-f1c4-4d25-83ad-929a94ec2df4}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Main">
       <UniqueIdentifier>{70da55b4-379c-45bc-91a3-bfb39e3c6474}</UniqueIdentifier>
     </Filter>
@@ -51,6 +48,9 @@
     </Filter>
     <Filter Include="Cheat\Triggerbot">
       <UniqueIdentifier>{8b5170fb-9f92-41d5-92f3-7fcc8da42130}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ImGui\License">
+      <UniqueIdentifier>{7942f7a1-f1c4-4d25-83ad-929a94ec2df4}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -125,7 +125,7 @@
       <Filter>ImGui</Filter>
     </ClInclude>
     <ClInclude Include="License\License.h">
-      <Filter>License</Filter>
+      <Filter>ImGui\License</Filter>
     </ClInclude>
     <ClInclude Include="Main\Main.h">
       <Filter>Main</Filter>
@@ -355,7 +355,7 @@
       <Filter>ImGui</Filter>
     </ClCompile>
     <ClCompile Include="License\License.cpp">
-      <Filter>License</Filter>
+      <Filter>ImGui\License</Filter>
     </ClCompile>
     <ClCompile Include="Main\Main.cpp">
       <Filter>Main</Filter>

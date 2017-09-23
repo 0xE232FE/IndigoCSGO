@@ -100,24 +100,26 @@ void CMisc::OnPlaySound( const char* pszSoundName )
 	}
 }
 
-void CMisc::OnOverrideView( CViewSetup * pSetup )
+void CMisc::OnOverrideView(CViewSetup * pSetup)
 {
-	if ( Settings::Misc::misc_FovChanger && !Interfaces::Engine()->IsTakingScreenshot() )
+	if (Settings::Misc::misc_FovChanger && !Interfaces::Engine()->IsTakingScreenshot())
 	{
-		CBaseEntity* pPlayer = (CBaseEntity*)Interfaces::EntityList()->GetClientEntity( Interfaces::Engine()->GetLocalPlayer() );
+		CBaseEntity* pPlayer = (CBaseEntity*)Interfaces::EntityList()->GetClientEntity(Interfaces::Engine()->GetLocalPlayer());
 
-		if ( !pPlayer )
+		if (!pPlayer)
 			return;
 
-		if ( pPlayer->IsDead() )
-		{
-			if ( pPlayer->GetObserverMode() == ObserverMode_t::OBS_MODE_IN_EYE && pPlayer->GetObserverTarget() )
-				pPlayer = (CBaseEntity*)Interfaces::EntityList()->GetClientEntityFromHandle( pPlayer->GetObserverTarget() );
+		if (pPlayer->GetIsScoped())
+			return;
 
-			if ( !pPlayer )
+		if (pPlayer->IsDead())
+		{
+			if (pPlayer->GetObserverMode() == ObserverMode_t::OBS_MODE_IN_EYE && pPlayer->GetObserverTarget())
+				pPlayer = (CBaseEntity*)Interfaces::EntityList()->GetClientEntityFromHandle(pPlayer->GetObserverTarget());
+
+			if (!pPlayer)
 				return;
 		}
-
 		pSetup->fov = (float)Settings::Misc::misc_FovView;
 	}
 }

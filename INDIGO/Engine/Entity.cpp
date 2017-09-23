@@ -9,7 +9,7 @@ namespace Engine
 		{
 			static PlayerInfo Info;
 
-			if ( Interfaces::Engine()->GetPlayerInfo( EntIndex() , &Info ) )
+			if ( Interfaces::Engine()->GetPlayerInfo( EntIndex() , &Info ))
 				return Info.m_szPlayerName;
 		}
 
@@ -125,6 +125,11 @@ namespace Engine
 	int CBaseEntity::GetIsScoped()
 	{
 		return *(PINT)( ( DWORD )this + (DWORD)Offset::Entity::m_bIsScoped );
+	}
+
+	int CBaseEntity::GetIsZoomed()
+	{
+		return *(PINT)( ( DWORD )this + (DWORD)Offset::Entity::m_zoomLevel );
 	}
 
 	int	CBaseEntity::GetTickBase()
@@ -248,9 +253,9 @@ namespace Engine
 		return pBone;
 	}
 
-	mstudiobbox_t* CBaseEntity::GetHitBox( int nHitbox )
+	mstudiobbox_t* CBaseEntity::GetHitBox(int nHitbox)
 	{
-		if ( nHitbox < 0 || nHitbox >= HITBOX_MAX )
+		if (nHitbox < 0 || nHitbox >= HITBOX_MAX)
 			return nullptr;
 
 		mstudiohitboxset_t* pHitboxSet = nullptr;
@@ -258,12 +263,12 @@ namespace Engine
 
 		pHitboxSet = GetHitBoxSet();
 
-		if ( !pHitboxSet )
+		if (!pHitboxSet)
 			return pHitboxBox;
 
-		pHitboxBox = pHitboxSet->pHitbox( nHitbox );
+		pHitboxBox = pHitboxSet->pHitbox(nHitbox);
 
-		if ( !pHitboxBox )
+		if (!pHitboxBox)
 			return nullptr;
 
 		return pHitboxBox;
@@ -276,39 +281,39 @@ namespace Engine
 
 		pStudioModel = GetStudioModel();
 
-		if ( !pStudioModel )
+		if (!pStudioModel)
 			return pHitboxSet;
 
-		pHitboxSet = pStudioModel->pHitboxSet( 0 );
+		pHitboxSet = pStudioModel->pHitboxSet(0);
 
-		if ( !pHitboxSet )
+		if (!pHitboxSet)
 			return nullptr;
 
 		return pHitboxSet;
 	}
 
-	Vector CBaseEntity::GetHitboxPosition( int nHitbox )
+	Vector CBaseEntity::GetHitboxPosition(int nHitbox)
 	{
 		matrix3x4_t MatrixArray[MAXSTUDIOBONES];
-		Vector vRet , vMin , vMax;
+		Vector vRet, vMin, vMax;
 
-		vRet = Vector( 0 , 0 , 0 );
+		vRet = Vector(0, 0, 0);
 
-		mstudiobbox_t* pHitboxBox = GetHitBox( nHitbox );
+		mstudiobbox_t* pHitboxBox = GetHitBox(nHitbox);
 
-		if ( !pHitboxBox || !IsValid() )
-			return vRet;
-		
-		if ( !SetupBones( MatrixArray , MAXSTUDIOBONES , BONE_USED_BY_HITBOX , 0/*Interfaces::GlobalVars()->curtime*/ ) )
+		if (!pHitboxBox || !IsValid())
 			return vRet;
 
-		if ( !pHitboxBox->m_Bone || !pHitboxBox->m_vBbmin.IsValid() || !pHitboxBox->m_vBbmax.IsValid() )
+		if (!SetupBones(MatrixArray, MAXSTUDIOBONES, BONE_USED_BY_HITBOX, 0/*Interfaces::GlobalVars()->curtime*/))
 			return vRet;
-						
-		VectorTransform( pHitboxBox->m_vBbmin , MatrixArray[pHitboxBox->m_Bone] , vMin );
-		VectorTransform( pHitboxBox->m_vBbmax , MatrixArray[pHitboxBox->m_Bone] , vMax );
 
-		vRet = ( vMin + vMax ) * 0.5f;
+		if (!pHitboxBox->m_Bone || !pHitboxBox->m_vBbmin.IsValid() || !pHitboxBox->m_vBbmax.IsValid())
+			return vRet;
+
+		VectorTransform(pHitboxBox->m_vBbmin, MatrixArray[pHitboxBox->m_Bone], vMin);
+		VectorTransform(pHitboxBox->m_vBbmax, MatrixArray[pHitboxBox->m_Bone], vMax);
+
+		vRet = (vMin + vMax) * 0.5f;
 
 		return vRet;
 	}
@@ -316,32 +321,32 @@ namespace Engine
 	int	CBaseViewModel::GetModelIndex()
 	{
 		// DT_BaseViewModel -> m_nModelIndex
-		return *(int*)( ( DWORD )this + Offset::Entity::m_nModelIndex );
+		return *(int*)((DWORD)this + Offset::Entity::m_nModelIndex);
 	}
 
-	void CBaseViewModel::SetModelIndex( int nModelIndex )
+	void CBaseViewModel::SetModelIndex(int nModelIndex)
 	{
-		VirtualFn( void )( PVOID , int );
-		GetMethod< OriginalFn >( this , 75 )( this , nModelIndex );
+		VirtualFn(void)(PVOID, int);
+		GetMethod< OriginalFn >(this, 75)(this, nModelIndex);
 		// DT_BaseViewModel -> m_nModelIndex
 		//*(int*)( ( DWORD )this + Offset::Entity::m_nModelIndex ) = nModelIndex;
 	}
 
-	void CBaseViewModel::SetWeaponModel( const char* Filename , IClientEntity* Weapon )
+	void CBaseViewModel::SetWeaponModel(const char* Filename, IClientEntity* Weapon)
 	{
-		typedef void( __thiscall* SetWeaponModelFn )( void* , const char* , IClientEntity* );
-		return GetMethod<SetWeaponModelFn>( this , 242 )( this , Filename , Weapon );
+		typedef void(__thiscall* SetWeaponModelFn)(void*, const char*, IClientEntity*);
+		return GetMethod<SetWeaponModelFn>(this, 242)(this, Filename, Weapon);
 	}
 
 	DWORD CBaseViewModel::GetOwner()
 	{
 		// DT_BaseViewModel -> m_hOwner
-		return *(PDWORD)( ( DWORD )this + Offset::Entity::m_hOwner );
+		return *(PDWORD)((DWORD)this + Offset::Entity::m_hOwner);
 	}
 
 	DWORD CBaseViewModel::GetWeapon()
 	{
 		// DT_BaseViewModel -> m_hWeapon
-		return *(PDWORD)( ( DWORD )this + Offset::Entity::m_hWeapon );
+		return *(PDWORD)((DWORD)this + Offset::Entity::m_hWeapon);
 	}
 }

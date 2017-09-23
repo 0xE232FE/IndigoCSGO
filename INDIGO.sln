@@ -1,9 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 14
-VisualStudioVersion = 14.0.25123.0
+# Visual Studio 15
+VisualStudioVersion = 15.0.26730.15
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "INDIGO", "INDIGO\INDIGO.vcxproj", "{45A301E6-73EC-4F60-88F4-D1D5154B58D7}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Injector", "INJECTOR\RandoInjector.vcxproj", "{A0F6DAB8-8214-4253-A6FA-88A39ED035C5}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,8 +17,15 @@ Global
 		{45A301E6-73EC-4F60-88F4-D1D5154B58D7}.Debug|x86.Build.0 = Debug|Win32
 		{45A301E6-73EC-4F60-88F4-D1D5154B58D7}.Release|x86.ActiveCfg = Release|Win32
 		{45A301E6-73EC-4F60-88F4-D1D5154B58D7}.Release|x86.Build.0 = Release|Win32
+		{A0F6DAB8-8214-4253-A6FA-88A39ED035C5}.Debug|x86.ActiveCfg = Release|Win32
+		{A0F6DAB8-8214-4253-A6FA-88A39ED035C5}.Debug|x86.Build.0 = Release|Win32
+		{A0F6DAB8-8214-4253-A6FA-88A39ED035C5}.Release|x86.ActiveCfg = Release|Win32
+		{A0F6DAB8-8214-4253-A6FA-88A39ED035C5}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {6FD91C33-E23F-41E4-9098-4812704BB1ED}
 	EndGlobalSection
 EndGlobal
