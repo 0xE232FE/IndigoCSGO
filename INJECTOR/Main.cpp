@@ -9,24 +9,15 @@
 // 1. change all bytes(0x00, 0x01, 0x03....) in define "JUNKS" to random bytes
 // 2. change size this block by add new bytes
 #define JUNKS \
-__asm _emit 0x00 \
-__asm _emit 0x00 \
-__asm _emit 0x00 \
-__asm _emit 0x00 \
-__asm _emit 0x00 \
-__asm _emit 0x00 \
-__asm _emit 0x00 \
-__asm _emit 0x00 \
-__asm _emit 0x00 \
-__asm _emit 0x00 \
-__asm _emit 0x00 \
-__asm _emit 0x00 \
-__asm _emit 0x00 \
-__asm _emit 0x00 \
-__asm _emit 0x00 \
-__asm _emit 0x00 \
-__asm _emit 0x00 \
-__asm _emit 0x00 \
+__asm _emit 0x51 \
+__asm _emit 0xf8 \
+__asm _emit 0xf9 \
+__asm _emit 0xf4 \
+__asm _emit 0x02 \
+__asm _emit 0x04 \
+__asm _emit 0xf4 \
+__asm _emit 0x0d \
+__asm _emit 0x04 \
 
 // Don't change this!
 #define _JUNK_BLOCK(s) __asm jmp s JUNKS __asm s:

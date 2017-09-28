@@ -1,0 +1,17 @@
+*INDIGO/Debug/
+*INDIGO/Release/
+*INJECTOR/Release/
+*INJECTOR/Debug/
+*.vs/INDIGO/v15/ipch/
+Release/indigo.lib
+Release/indigo.ipdb
+Release/indigo.iobj
+Release/indigo.exp
+Release/gui.ini
+
+Debug/indigo.lib
+Debug/indigo.ipdb
+Debug/indigo.iobj
+Debug/indigo.exp
+Debug/indigo.pdb
+Debug/indigo.ilk
