@@ -5,14 +5,18 @@ using namespace Client;
 #pragma warning(disable:4244)
 //[junk_enable /]
 //[enc_string_enable /]
-byte tt_ct_best_hit_1[6] =
+byte tt_ct_best_hit_1[10] =
 {
 	HITBOX_HEAD,
 	HITBOX_NECK,
 	HITBOX_LOWER_NECK,
+	HITBOX_LEFT_UPPER_ARM
+	HITBOX_RIGHT_UPPER_ARM
+	HITBOX_UPPER_CHEST,
+	HITBOX_CHEST
 	HITBOX_BODY,
-	HITBOX_THORAX,
-	HITBOX_CHEST,
+	HITBOX_LEFT_THIGH
+	HITBOX_RIGHT_THIGH
 };
 
 #define TT_CT_BEST_HIT_SIZE_1 ( sizeof( tt_ct_best_hit_1 ) / sizeof( *tt_ct_best_hit_1 ) )
